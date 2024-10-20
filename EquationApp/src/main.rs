@@ -9,6 +9,5 @@ fn main() {
     let eq_piv = equation::Equation::new(vars, equation, hint);
 
     // Output PIV
-    println!("{}", eq_piv.get_equation());
-    println!("{}", eq_piv.get_variables());
+    println!("{}", eq_piv.get_attribute(String::from("hint_description")));
 }

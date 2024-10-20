@@ -16,8 +16,16 @@ impl Equation {
         }
     }
 
-    // Function to output attributes
-    pub fn get_equation(&self) -> String {self.equation.clone()}
-    pub fn get_hint_description(&self) -> String {self.hint_description.clone()}
-    pub fn get_variables(&self) -> String {self.variables.clone().join(", ")}
+    // Improved get attribute func
+    pub fn get_attribute(&self, attr: String) -> String {
+        if attr.to_string() == String::from("variables") {
+            self.variables.clone().join(", ")
+        } else if attr.to_string() == String::from("equation") {
+            self.equation.clone()
+        } else if attr.to_string() == String::from("hint_description") {
+            self.hint_description.clone()
+        } else {
+            String::from("FAIL")
+        }
+    }
 }
