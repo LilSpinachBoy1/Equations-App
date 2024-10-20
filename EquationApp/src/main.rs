@@ -1,5 +1,6 @@
 // Add structures
 mod equation;
+mod eq_manager;
 
 fn main() {
     // Create P=IV equation
