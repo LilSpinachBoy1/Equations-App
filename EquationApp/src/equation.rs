@@ -1,5 +1,6 @@
 // Structure to hold an Equation
 pub struct Equation {
+    id: u32,
     variables: Vec<String>,
     equation: String,
     hint_description: String,
