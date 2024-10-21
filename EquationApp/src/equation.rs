@@ -9,8 +9,9 @@ pub struct Equation {
 // Implementation of Equation structure
 impl Equation {
     // __init__, creates Equation struct
-    pub fn new(variables: Vec<String>, equation: String, hint_description: String) -> Self {
+    pub fn new(id: u32, variables: Vec<String>, equation: String, hint_description: String) -> Self {
         Equation {
+            id,
             variables,
             equation,
             hint_description,
