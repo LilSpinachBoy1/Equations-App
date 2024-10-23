@@ -20,11 +20,14 @@ impl Equation {
 
     // Improved get attribute func
     pub fn get_attribute(&self, attr: String) -> String {
-        if attr.to_string() == String::from("variables") {
+        let str_attr = attr.to_string();
+        if str_attr == String::from("id") {
+            self.id.clone().to_string()
+        } else if str_attr == String::from("variables") {
             self.variables.clone().join(", ")
-        } else if attr.to_string() == String::from("equation") {
+        } else if str_attr == String::from("equation") {
             self.equation.clone()
-        } else if attr.to_string() == String::from("hint_description") {
+        } else if str_attr == String::from("hint_description") {
             self.hint_description.clone()
         } else {
             String::from("FAIL")
