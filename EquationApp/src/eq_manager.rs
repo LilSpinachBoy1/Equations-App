@@ -8,6 +8,7 @@ EQUATION MANAGER - HOW IT WORKS:
 
 use std::fs::File;
 use std::io::Read;
+use std::env;
 use crate::equation::Equation;
 
 pub struct EquationManager {
@@ -27,18 +28,17 @@ impl EquationManager {
 
     // Func to read file contents to a string, and then add them to the "equations" attribute of the EquationManager struct
     pub fn load_from_file(&mut self) -> std::io::Result<()> {
-        let mut file = File::open(&self.file_location)?;
+        let mut file = File::open(self.file_location.clone())?;
         //TODO: adjust this code to access the details right, for now is just kind of testing it
         let mut contents = String::new();
         file.read_to_string(&mut contents)?;
-        println!("{}", contents);
 
         // Return "ok" if everything works alright!
         Ok(())
     }
 
     // Function to create a new equation and add it to the equation manager.
-    pub fn add_equation(&mut self, variables: Vec<String>, equation: String, hint_description: String) -> None {
+    pub fn add_equation(&mut self, variables: Vec<String>, equation: String, hint_description: String) {
         let eq = Equation::new(self.next_free_id, variables, equation, hint_description);  // Create new equation
         self.next_free_id += 1;   // Increment next free ID, as that one has been taken
         self.equations.push(eq);  // Add new equation to "equations" vec

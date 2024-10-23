@@ -1,4 +1,5 @@
 // Structure to hold an Equation
+#[derive(Clone)]
 pub struct Equation {
     id: u32,
     variables: Vec<String>,
