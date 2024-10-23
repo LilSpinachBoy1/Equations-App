@@ -7,6 +7,8 @@ pub struct Equation {
     hint_description: String,
 }
 
+//TODO: Add display implementation to allow use of .join() and other string functions
+
 // Implementation of Equation structure
 impl Equation {
     // __init__, creates Equation struct

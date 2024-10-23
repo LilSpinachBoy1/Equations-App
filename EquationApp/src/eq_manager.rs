@@ -7,8 +7,7 @@ EQUATION MANAGER - HOW IT WORKS:
 */
 
 use std::fs::File;
-use std::io::Read;
-use std::env;
+use std::io::{Read, Write};
 use crate::equation::Equation;
 
 pub struct EquationManager {
@@ -34,6 +33,16 @@ impl EquationManager {
         file.read_to_string(&mut contents)?;
 
         // Return "ok" if everything works alright!
+        Ok(())
+    }
+
+    // Func to write all equations currently in the vec to a file
+    pub fn write_to_file(&mut self) -> std::io::Result<()> {
+        let mut file = File::open(self.file_location.clone())?;
+        let to_write = self.equations.clone().join(" | ");
+        file.write_all(to_write)?;
+
+        // Return ok if successful
         Ok(())
     }
 

@@ -14,4 +14,10 @@ fn main() {
     let equation = String::from("P=IV");
     let hint = String::from("The equation linking PD, current and power");
     manager.add_equation(vars, equation, hint);
+
+    // Test writing to file (this aint gunna work is it)
+    match manager.write_to_file() {
+        Ok(()) => println!("File written!"),
+        Err(e) => println!("Error: {}", e),
+    }
 }
